@@ -16,7 +16,7 @@ function App() {
       <div className="flex w-full">
         <div className="w-full sm:w-1/2">
           <div className="bg-white border-black border rounded-md p-4">
-            <h2 className="text-xl font-bold mb-4 flex flex-col items-center justify-center">Pending</h2>
+            <h2 className="text-xl font-bold mb-4 flex flex-col items-center justify-center">pending</h2>
             
               <Taskcard title="Build the website with static content" dueDate="10th April"  assignname="Rohit S" completed={false}/>
               <Taskcard title="Build the website with static content" dueDate="22nd March"  assignname="Rohit M" completed={false}/>
@@ -26,7 +26,7 @@ function App() {
 
         <div className="w-full sm:w-1/2 ml-4">
           <div className="bg-white border-black border rounded-md p-4">
-            <h2 className="text-xl font-bold mb-4 flex flex-col items-center justify-center">Done</h2>
+            <h2 className="text-xl font-bold mb-4 flex flex-col items-center justify-center">done</h2>
           
               <Taskcard title="Build the website with static content"  completedAtDate="10th April" assignname="Rohit M" completed={true} />
               <Taskcard title="Build the website with static content"  completedAtDate="20th April" assignname="Ajay S" completed={true} />
