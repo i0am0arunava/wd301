@@ -1,23 +1,23 @@
-import "./Taskcard.css";
-const TaskCard = (p) => {
-  console.log(p)
-  if (p.complete=="yes")
+import "./TaskCard.css";
+const TaskCard = (props) => {
+  console.log(props)
+  if (props.completed)
     return (
       <div className="TaskItem  border-black border rounded-md p-4">
-        <h1 className="text-xl font-bold">{p.title}</h1>
-        <p>Completed on: {p.completedAtDate}</p>
-        <p>Assignee: {p.assigneeName}</p>
+        <h1 className="text-xl font-bold">{props.title}</h1>
+        <p>Completed on: {props.completedAtDate}</p>
+        <p>Assignee: {props.assigneeName}</p>
       </div>
 
     )
-  else if(p.complete=="no")
+  else
     return (
 
 
       <div className="TaskItem  border-black border rounded-md p-4">
-        <h1 className="text-xl font-bold">{p.title}</h1>
-        <p>Due on: {p.dueDate}</p>
-        <p>Assignee: {p.assigneeName}</p>
+        <h1 className="text-xl font-bold">{props.title}</h1>
+        <p>Due on: {props.dueDate}</p>
+        <p>Assignee: {props.assigneeName}</p>
       </div>
     )
 }
