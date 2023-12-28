@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
-import Taskcard from './TaskCard';
+import TaskCard from './TaskCard';
 
 function App() {
   return (
@@ -16,20 +16,20 @@ function App() {
       <div className="flex w-full">
         <div className="w-full sm:w-1/2">
           <div className="bg-white border-black border rounded-md p-4">
-            <h2 className="text-xl font-bold mb-4 flex flex-col items-center justify-center">pending</h2>
+            <h2 className="text-xl font-bold mb-4 flex flex-col items-center justify-center">Pending</h2>
             
-              <Taskcard title="Build the website with static content" dueDate="10th April"  assignname="Rohit S" completed={false}/>
-              <Taskcard title="Add a blog" dueDate="22nd March"  assignname="Rohit M" completed={false}/>
+              <TaskCard title="Build the website with static content" dueDate="10th April"  assigneeName="Rohit S" completed={false}/>
+              <TaskCard title="Add a blog" dueDate="22nd March"  assigneeName="Rohit M" completed={false}/>
               <div className=" bg-gray-200 rounded-md p-4">+ New task</div>
           </div>
         </div>
 
         <div className="w-full sm:w-1/2 ml-4">
           <div className="bg-white border-black border rounded-md p-4">
-            <h2 className="text-xl font-bold mb-4 flex flex-col items-center justify-center">done</h2>
+            <h2 className="text-xl font-bold mb-4 flex flex-col items-center justify-center">Done</h2>
           
-              <Taskcard title="Design the mockup"  completedAtDate="10th April" assignname="Rohit M" completed={true} />
-              <Taskcard title="Get the approval from the principal"  completedAtDate="20th April" assignname="Ajay S" completed={true} />
+              <TaskCard title="Design the mockup"  completedAtDate="10th April" assigneeName="Rohit M" completed={true} />
+              <TaskCard title="Get the approval from the principal"  completedAtDate="20th April" assigneeName="Ajay S" completed={true} />
            
           </div>
           
