@@ -1,7 +1,7 @@
 import "./Taskcard.css";
 const TaskCard = (p) => {
   console.log(p)
-  if (p.completed)
+  if (p.complete=="yes")
     return (
       <div className="TaskItem  border-black border rounded-md p-4">
         <h1 className="text-xl font-bold">{p.title}</h1>
@@ -10,7 +10,7 @@ const TaskCard = (p) => {
       </div>
 
     )
-  else
+  else if(p.complete=="no")
     return (
 
 
