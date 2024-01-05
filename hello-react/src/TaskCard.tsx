@@ -5,9 +5,6 @@ interface User {
   dueDate?: string; 
   completedAtDate?: string;
   assigneeName: string;
-
-  completed:boolean;
-
 }
 
 const TaskCard :React.FC<User>= (props) => {
