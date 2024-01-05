@@ -2,8 +2,8 @@ import React from "react"
 import "./TaskCard.css";
 interface User {
   title:string,
-  dueDate:string,
-  completedAtDate:string,
+  dueDate?:string,
+  completedAtDate?:string,
   assigneeName:string,
   completed:boolean
 
