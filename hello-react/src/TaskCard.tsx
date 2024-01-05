@@ -9,7 +9,7 @@ interface User {
 
 }
 
-const TaskCard :React.FC<User>= ({title,dueDate,completedAtDate,assigneeName,completed} : User) => {
+const TaskCard :React.FC<User>= ({title,dueDate,completedAtDate,assigneeName,completed}) => {
   console.log()
   if (completed)
     return (
