@@ -5,11 +5,12 @@ interface User {
   dueDate?: string; 
   completedAtDate?: string;
   assigneeName: string;
+ 
 }
 
 const TaskCard :React.FC<User>= (props) => {
-  console.log(props)
-  if (props.completed)
+  console.log()
+  if (props.completedAtDate)
     return (
       <div className="TaskItem  border-black border rounded-md p-4">
         <h1 className="text-xl font-bold">{props.title}</h1>
