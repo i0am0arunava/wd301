@@ -2,9 +2,9 @@ import React from "react"
 import "./TaskCard.css";
 interface User {
   title:string,
-   dueDate:string,
+  dueDate:string,
   completedAtDate:string,
-  assigneeName:string | number,
+  assigneeName:string,
   completed:boolean
 
 }
