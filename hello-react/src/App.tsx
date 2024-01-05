@@ -18,8 +18,8 @@ function App() {
           <div className="bg-white border-black border rounded-md p-4">
             <h2 className="text-xl font-bold mb-4 flex flex-col items-center justify-center">Pending</h2>
             
-              <TaskCard title="Build the website with static content" dueDate="10th April"  assigneeName="Rohit S" completed={false}/>
-              <TaskCard title="Add a blog" dueDate="22nd March" assigneeName="Rohit M" completed={false}/>
+              <TaskCard title="Build the website with static content" dueDate="10th April"  assigneeName="Rohit S" />
+              <TaskCard title="Add a blog" dueDate="22nd March" assigneeName="Rohit M" />
               <div className=" bg-gray-200 rounded-md p-4">+ New task</div>
           </div>
         </div>
@@ -28,8 +28,8 @@ function App() {
           <div className="bg-white border-black border rounded-md p-4">
             <h2 className="text-xl font-bold mb-4 flex flex-col items-center justify-center">Done</h2>
           
-              <TaskCard title="Design the mockup" completedAtDate="10th April" assigneeName="Rohit M" completed={true} />
-              <TaskCard title="Get the approval from the principal" completedAtDate="20th April" assigneeName="Ajay S" completed={true} />
+              <TaskCard title="Design the mockup" completedAtDate="10th April" assigneeName="Rohit M" />
+              <TaskCard title="Get the approval from the principal" completedAtDate="20th April" assigneeName="Ajay S" y/>
            
           </div>
           
