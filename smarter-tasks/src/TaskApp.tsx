@@ -1,6 +1,9 @@
+import './TaskCard.css'
 import React from "react";
 interface TaskItem {
   title: string;
+  description:string;
+  dueDate:Date;
 }
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";

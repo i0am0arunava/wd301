@@ -2,17 +2,19 @@ import React from "react"
 
 interface Taskpropss{
     title:string;
+    description:string;
+    dueDate:Date;
 }
 class Task extends React.Component<Taskpropss> {
     render() {
         return (
-          <div className="rounded-md p-2 md:p-4 mt-3 shadow-md border border-slate-100">
-            <h2 className="text-base font-bold my-1">{this.props.title}</h2>
-            <p className="text-sm text-slate-500">
-              Due Date:
+          <div className="TaskItem">
+            <h2 >{this.props.title}</h2>
+            <p >
+              Due Date:{this.props.dueDate.toISOString().split('T')[0]}
             </p>
-            <p className="text-sm text-slate-500">
-              Description: 
+            <p>
+              Description: {this.props.description}
             </p>
           </div>
         );

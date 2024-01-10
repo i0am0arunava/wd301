@@ -1,3 +1,4 @@
+import './TaskCard.css'
 import React from "react"
 import Task from "./Task"
 interface Props {
@@ -14,7 +15,7 @@ class TaskList extends React.Component<Props, State> {
         return (
             <>
                 {this.props.tasks.map(( task,idx) => (
-                    <Task key={idx} title={task.title} />
+                    <Task key={idx} title={task.title} description={task.description} dueDate={task.dueDate}/>
                 ))}
             </>
         );
@@ -23,4 +24,6 @@ class TaskList extends React.Component<Props, State> {
 export default TaskList
 export interface TaskItem {
     title: string;
+    description:string;
+    dueDate:Date
   }
