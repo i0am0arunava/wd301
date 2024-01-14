@@ -1,6 +1,6 @@
 import './TaskCard.css'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from "react"
+import React from "react"
 
 interface TaskItem {
   title: string;
