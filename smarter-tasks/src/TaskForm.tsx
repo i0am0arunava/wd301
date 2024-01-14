@@ -1,9 +1,11 @@
 import './TaskCard.css'
-import React from "react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React, { useState } from "react"
+
 interface TaskItem {
   title: string;
   description: string;
-  dueDate: Date
+  dueDate: string
 }
 
 interface TaskFormProps {
@@ -13,87 +15,103 @@ interface TaskFormProps {
 interface TaskFormState {
   title: string;
   description: string;
-  dueDate: Date
+  dueDate: string
 }
-class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
-  constructor(props: TaskFormProps) {
-    super(props);
-
-    this.state = {
-      title: "",
-      description: "",
-      dueDate: new Date()
-    }
-  }
-  inputRef = React.createRef<HTMLInputElement>();
-  addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
+const TaskForm = (props: TaskFormProps) => {
+  const [formState, setFormState] = React.useState<TaskFormState>({
+    title: "",
+    description: "",
+    dueDate: ""
+  });
+  const titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    console.log(`${event.target.value}`);
+    setFormState({ ...formState, title: event.target.value });
+  };
+  const descriptionChanged: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    console.log(`${event.target.value}`);
+    setFormState({ ...formState, description: event.target.value });
+  };
+  const dueDateChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    console.log(`${event.target.value}`);
+    setFormState({ ...formState, dueDate: event.target.value });
+  };
+  const addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    const newTask = {
-      title: this.state.title,
-      description: this.state.description,
-      dueDate: this.state.dueDate
-    };
-    this.props.addTask(newTask);
-    console.log(`added ${newTask}`)
-    this.setState({ title: "" });
-    this.setState({ description: "" });
-
-
+    console.log(`Submitted the form with`);
+    if (formState.title.length === 0 || formState.dueDate.length === 0) {
+      return;
+    }
+    props.addTask(formState);
+    setFormState({ title: "", description: "", dueDate: "" });
   };
-  titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    console.log(`${event.target.value}`);
-    this.setState({ title: event.target.value });
-  };
-  desChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    console.log(`${event.target.value}`);
-
-    this.setState({ description: event.target.value });
-  };
-  dateChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    console.log(`${event.target.value}`);
-    const selectedDate = new Date(event.target.value);
-    this.setState({ dueDate: selectedDate });
-  };
-  render() {
-    return (
-      <form onSubmit={this.addTask} className="max-w-md mx-auto mt-8">
-        <div className="flex flex-col space-y-4">
+  return (
+    <form onSubmit={addTask}>
+      <div className="grid md:grid-cols-4 md:gap-3">
+        <div className="relative z-0 w-full mb-6 group">
           <input
             id="todoTitle"
+            name="todoTitle"
             type="text"
-            value={this.state.title}
-            onChange={this.titleChanged}
-            className="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:border-blue-500"
-            placeholder="Task Name"
-            required
+            value={formState.title}
+            onChange={titleChanged}
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
           />
+          <label
+            htmlFor="todoTitle"
+            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >
+            Todo Title
+          </label>
+        </div>
+        <div className="relative z-0 w-full mb-6 group">
           <input
             id="todoDescription"
+            name="todoDescription"
             type="text"
-            value={this.state.description}
-            onChange={this.desChanged}
-            className="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:border-blue-500"
-            placeholder="Description"
-            required
+            value={formState.description}
+            onChange={descriptionChanged}
+            placeholder=" "
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
           />
+          <label
+            htmlFor="todoDescription"
+            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >
+            Description
+          </label>
+        </div>
+        <div className="relative z-0 w-full mb-6 group">
           <input
             id="todoDueDate"
+            name="todoDueDate"
             type="date"
-            value={this.state.dueDate.toISOString().split('T')[0]} // Formatting the Date object to 'YYYY-MM-DD' format
-            onChange={this.dateChanged}
-            className="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:border-blue-500"
+            value={formState.dueDate}
+            onChange={dueDateChanged}
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
             required
           />
-          <button
-            id="addTaskButton"
-            type="submit"
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          <label
+            htmlFor="todoDueDate"
+            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            Add Item
+            Due Date
+          </label>
+        </div>
+        <div className="relative z-0 w-full mb-6 group">
+          <button
+          id="addTaskButton"
+            type="submit"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Add item
           </button>
         </div>
-      </form>
-    )
-  }
-}
+      </div>
+    </form>
+  );
+};
 export default TaskForm;
