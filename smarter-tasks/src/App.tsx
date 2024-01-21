@@ -10,7 +10,7 @@ import {
 import Layout from "./Layout";
 import TaskDetailsPage from "./pages/TaskDetailsPage";
 import Signin from "./pages/Signin";
-import NotFound from "./pages/NotFound"
+import Notfound from "./pages/Notfound"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/notfound",
-    element: <NotFound/>,
+    element: <Notfound/>,
   },
   {
     element: (
