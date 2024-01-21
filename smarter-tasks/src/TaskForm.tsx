@@ -3,6 +3,7 @@ import './TaskCard.css'
 import React from "react"
 
 interface TaskItem {
+  id:string;
   title: string;
   description: string;
   dueDate: string
@@ -13,19 +14,24 @@ interface TaskFormProps {
 }
 
 interface TaskFormState {
+  id:string;
   title: string;
   description: string;
   dueDate: string
 }
+const uid =  Date.now().toString(36) + Math.random().toString(36).substr(2);
+
+
 const TaskForm = (props: TaskFormProps) => {
   const [formState, setFormState] = React.useState<TaskFormState>({
+    id:"",
     title: "",
     description: "",
     dueDate: ""
   });
   const titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     console.log(`${event.target.value}`);
-    setFormState({ ...formState, title: event.target.value });
+    setFormState({ ...formState, title: event.target.value ,id:uid});
   };
   const descriptionChanged: React.ChangeEventHandler<HTMLInputElement> = (
     event
@@ -44,7 +50,7 @@ const TaskForm = (props: TaskFormProps) => {
       return;
     }
     props.addTask(formState);
-    setFormState({ title: "", description: "", dueDate: "" });
+    setFormState({ id:"",title: "", description: "", dueDate: "" });
   };
   return (
     <form onSubmit={addTask}>

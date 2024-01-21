@@ -2,6 +2,7 @@ import './TaskCard.css'
 
 import { useLocalStorage } from "./hooks/useLocalStorage";
 interface TaskItem {
+  id:string;
   title: string;
   description:string;
   dueDate:string;

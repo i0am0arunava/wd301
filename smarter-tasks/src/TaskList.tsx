@@ -10,7 +10,7 @@ const TaskList = (props: Props) => {
     const list = props.tasks.map((task, idx) => (
       <li key={idx}>
       <Task
-        
+        id={task.id}
         title={task.title}
         description={task.description}
         dueDate={task.dueDate}
@@ -21,6 +21,7 @@ const TaskList = (props: Props) => {
   };
 export default TaskList
 export interface TaskItem {
+  id:string;
     title: string;
     description:string;
     dueDate:string
