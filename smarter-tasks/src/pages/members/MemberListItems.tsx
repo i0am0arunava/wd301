@@ -40,7 +40,7 @@ export default function ProjectListItems() {
   return (
     <>
       {projects.map((project: any) => (
-        <div key={project.id} className="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div key={project.id} className="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 member">
           <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">Name: {project.name}</h5>
           <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">Email Id: {project.email}</h5>
           <button onClick={() => handleDelete(project.id)} className="bg-red-500 text-white px-3 py-1 rounded-md mt-2">
