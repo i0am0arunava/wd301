@@ -2,5 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 .dark {
-    @apply bg-slate-800 text-zinc-50;
-  }
+  background-color: #1a202c;
+  color: #cbd5e0;
+}
