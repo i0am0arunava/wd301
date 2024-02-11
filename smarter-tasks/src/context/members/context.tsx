@@ -32,5 +32,5 @@ return (
     </ProjectsStateContext.Provider>
   );
 };
-export const useProjectsState = () => useContext(ProjectsStateContext);
-export const useProjectsDispatch = () => useContext(ProjectsDispatchContext);
+export const useMembersState = () => useContext(ProjectsStateContext);
+export const useMembersDispatch = () => useContext(ProjectsDispatchContext);

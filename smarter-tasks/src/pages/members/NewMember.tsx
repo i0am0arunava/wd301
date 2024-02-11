@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { addProject } from '../../context/members/actions'
-import { useProjectsDispatch } from '../../context/members/context'
+import { useMembersDispatch } from '../../context/members/context'
 
 type Inputs = {
   name: string
@@ -14,7 +14,7 @@ type Inputs = {
 const NewProject = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [error, setError] = useState(null)
-  const dispatchProjects = useProjectsDispatch()
+  const dispatchProjects = useMembersDispatch()
 
   const {
     register,

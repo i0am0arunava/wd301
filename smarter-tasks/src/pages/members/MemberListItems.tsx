@@ -2,16 +2,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 
-// First, I'll import the useProjectsState custom hook to access projects state.
-import { useProjectsState } from "../../context/members/context";
+// First, I'll import the useMembersState custom hook to access projects state.
+import { useMembersState } from "../../context/members/context";
 import { deletemem } from '../../context/members/actions'
-import { useProjectsDispatch } from '../../context/members/context'
+import { useMembersDispatch } from '../../context/members/context'
 export default function ProjectListItems() {
 
-  // I'll define a new constant called `state`, to call the useProjectsState() hook, 
+  // I'll define a new constant called `state`, to call the useMembersState() hook, 
   // and get access to projects state.
-  let state: any = useProjectsState();
-  const dispatchProjects = useProjectsDispatch()
+  let state: any = useMembersState();
+  const dispatchProjects = useMembersDispatch()
   // Next, I'll destructure the state object to gain access to projects, 
   // isLoading, isError and errorMessage property.
   const { projects, isLoading, isError, errorMessage } = state

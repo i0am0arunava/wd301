@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { API_ENDPOINT } from '../../config/constants';
-export const fetchProjects = async (dispatch: any) => {
+export const fetchMembers = async (dispatch: any) => {
   const token = localStorage.getItem("authToken") ?? "";
   
   try {
