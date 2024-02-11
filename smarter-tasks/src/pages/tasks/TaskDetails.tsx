@@ -13,7 +13,7 @@ import { useMembersState } from "../../context/members/context";
 import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import { commentlist } from "../../context/comment/types";
 import { usecommentsState, usecommentDispatch } from "../../context/comment/context";
-import { addcom, refreshTasks } from "../../context/comment/action";
+import { addcom, refreshTasks } from "../../context/comment/actions";
 type TaskFormUpdatePayload = TaskDetailsPayload & {
   selectedPerson: string;
 };
