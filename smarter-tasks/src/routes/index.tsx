@@ -6,7 +6,7 @@ import ProjectContainer from "../pages/projects/ProjectContainer";
 
 import AccountLayout from "../layouts/account"
 import Notfound from "../pages/Notfound";
-import ProtectedRoutes from "./ProtectedRoutes"
+import ProtectedRoutes from "./ProtectedRoute"
 
 const Signin = React.lazy(() => import("../pages/signin"));
 const Signup = React.lazy(() => import("../pages/signup"));
