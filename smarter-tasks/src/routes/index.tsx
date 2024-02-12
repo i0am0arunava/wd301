@@ -1,23 +1,20 @@
 /* eslint-disable react-refresh/only-export-components */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from "react";
-import { createBrowserRouter, Navigate } from "react-router-dom";
-import ProjectContainer from "../pages/projects/ProjectContainer";
-
-import AccountLayout from "../layouts/account"
-import Notfound from "../pages/Notfound";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import {  createBrowserRouter } from "react-router-dom";
+import NewTask from "../pages/tasks/NewTask";
+import ProjectDetails from "../pages/project_details";
+import Signin from "../pages/signin"
+import Signup from "../pages/signup"
 import ProtectedRoutes from "./ProtectedRoute"
-
-const Signin = React.lazy(() => import("../pages/signin"));
-const Signup = React.lazy(() => import("../pages/signup"));
-const Projects = React.lazy(() => import("../pages/projects"));
-const Members = React.lazy(() => import("../pages/members"));
-const Logout = React.lazy(() => import("../pages/logout"));
-const ProjectDetails = React.lazy(() => import("../pages/project_details"));
-const NewTask = React.lazy(() => import("../pages/tasks/NewTask"));
-const TaskDetailsContainer = React.lazy(
-  () => import("../pages/tasks/TaskDetailsContainer")
-);
+import AccountLayout from "../layouts/account"
+import Projects from "../pages/projects"
+import Members from "../pages/members"
+import Logout from "../pages/logout";
+import {  Navigate } from "react-router-dom";
+import Notfound from "../pages/Notfound";
+import ProjectContainer from "../pages/projects/ProjectContainer";
+import TaskDetailsContainer from "../pages/tasks/TaskDetailsContainer";
 const router = createBrowserRouter([
     { path: "/", element: <Navigate to="/account/projects" replace /> },
 

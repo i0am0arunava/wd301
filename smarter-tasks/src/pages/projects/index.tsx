@@ -15,7 +15,6 @@ const Projects = () => {
       <ErrorBoundary >
         <Suspense fallback={<div className="suspense-loading">Loading...</div>}>
           <ProjectList />
-         
         </Suspense>
       </ErrorBoundary>
     </>
